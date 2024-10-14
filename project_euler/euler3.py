@@ -39,33 +39,33 @@ def get_next_least_factor(big_num, current_factor):
 
 
 
-# og_num = 600851475143
+og_num = 600851475143
 
-# least_factor = 3
+least_factor = 3
 
-# max_factor_is_prime = False
+max_factor_is_prime = False
 
-# solution = 0
+solution = 0
 
-# while not max_factor_is_prime:
-#     max_factor = og_num / least_factor
-#     if not (max_factor).is_integer():
-#         least_factor += 2
-#         continue
-#     print(least_factor, max_factor)
-#     print(prime_nums)
-#     if is_prime(max_factor):
-#         solution = max_factor
-#         break
-#     else:
-#         least_factor = get_next_least_factor(og_num, least_factor)
+while not max_factor_is_prime:
+    max_factor = og_num / least_factor
+    if not (max_factor).is_integer():
+        least_factor += 2
+        continue
+    # print(least_factor, max_factor)
+    # print(prime_nums)
+    if is_prime(max_factor):
+        solution = max_factor
+        break
+    else:
+        least_factor = get_next_least_factor(og_num, least_factor)
 
-# print(solution)
+print(solution)
 
 # for i in range (1, max_range):
 #     if is_prime(i):
 #         if og_num %
 
 
-print(is_prime(6857))
+# print(is_prime(6857))
 print(prime_nums)
