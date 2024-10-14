@@ -23,32 +23,32 @@ def is_prime(x):
 
 
 
-# prime_nums = [2, 3]
+prime_nums = [2, 3]
 
-# next_num = 5
+next_num = 5
 
-# while prime_nums[-1] < 2000000:
-#     if is_prime(next_num):
-#         prime_nums.append(next_num)
-#         # print(prime_nums[-1])
-#     next_num += 2
-#     if len(prime_nums) % 1000 == 0:
-#         print(prime_nums[-1])
-
-
-# with open("primes.txt", "a") as prime_file:
-
-#     for idx, prime in enumerate(prime_nums):
-#         if (idx+1) % 15 == 0:
-#             space = '\n'
-#         else:
-#             space = ', '
-
-#         prime_file.write(str(prime)+space)
+while prime_nums[-1] < 2000000:
+    if is_prime(next_num):
+        prime_nums.append(next_num)
+        # print(prime_nums[-1])
+    next_num += 2
+    if len(prime_nums) % 1000 == 0:
+        print(prime_nums[-1])
 
 
+with open("primes.txt", "a") as prime_file:
 
-# print(sum(prime_nums))
+    for idx, prime in enumerate(prime_nums):
+        if (idx+1) % 15 == 0:
+            space = '\n'
+        else:
+            space = ', '
+
+        prime_file.write(str(prime)+space)
+
+
+
+print(sum(prime_nums))
 
 
 print(142915828925 - 2000003)
