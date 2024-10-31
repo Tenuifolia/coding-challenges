@@ -31,3 +31,24 @@ pyramid = [
 # print(sum_list)
 # print(sum(sum_list))
 
+
+# possible_paths = [(0, 0,75)]
+
+# row_idx = 0
+
+# while True:
+#     row_idx += 1
+
+#     current_path = possible_paths.pop(0)
+#     next_row = current_path[1] + 1
+
+#     possible_paths.append(current_path[0], next_row, (current_path[2] + ))
+
+
+possible_paths = [(0,75)]
+
+for row in pyramid:
+    for num in row:
+
+
+
