@@ -204,49 +204,49 @@ import sys
 
 
 
-def sudoku_check(rows):
-    # for row in rows:
-    #     if sorted(row) != ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
-    #         return False
-    # return True
+# def sudoku_check(rows):
+#     # for row in rows:
+#     #     if sorted(row) != ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
+#     #         return False
+#     # return True
 
 
-    check = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-    columns = [[], [], [], [], [], [], [], [], []]
-    sub_squares = [[], [], [], [], [], [], [], [], []]
-    diag_1 = ''
-    diag_2 = ''
-    count = 0
-    for row_idx, row in enumerate(rows):
-        if sorted(row) != check:
-            print("Failed row: ", row)
-            return False
-        print(sorted(row))
-        for i in range(9):
-            columns[i].append(row[i])
-            sub_squares[i//3 + 3 * (row_idx//3)].append(row[i])
-        diag_1 += row[count]
-        diag_2 += row[8-count]
-        count += 1
-    print('columns')
-    for column in columns:
-        if sorted(column) != check:
-            print("Failed column: ", column)
-            return False
-        print(sorted(column))
-    print('sub_squares')
-    for sub_square in sub_squares:
-        if sorted(sub_square) != check:
-            print("Failed sub_square: ", sub_square)
-            return False
-        print(sub_square)
+#     check = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+#     columns = [[], [], [], [], [], [], [], [], []]
+#     sub_squares = [[], [], [], [], [], [], [], [], []]
+#     diag_1 = ''
+#     diag_2 = ''
+#     count = 0
+#     for row_idx, row in enumerate(rows):
+#         if sorted(row) != check:
+#             print("Failed row: ", row)
+#             return False
+#         print(sorted(row))
+#         for i in range(9):
+#             columns[i].append(row[i])
+#             sub_squares[i//3 + 3 * (row_idx//3)].append(row[i])
+#         diag_1 += row[count]
+#         diag_2 += row[8-count]
+#         count += 1
+#     print('columns')
+#     for column in columns:
+#         if sorted(column) != check:
+#             print("Failed column: ", column)
+#             return False
+#         print(sorted(column))
+#     print('sub_squares')
+#     for sub_square in sub_squares:
+#         if sorted(sub_square) != check:
+#             print("Failed sub_square: ", sub_square)
+#             return False
+#         print(sub_square)
 
-    if sorted(diag_1) != check and sorted(diag_2) != check:
-        print("Failed diag: ", diag_1, diag_2)
-        return False
-    print(f"diagonals\n{sorted(diag_1)}\n{sorted(diag_2)}")
+#     if sorted(diag_1) != check and sorted(diag_2) != check:
+#         print("Failed diag: ", diag_1, diag_2)
+#         return False
+#     print(f"diagonals\n{sorted(diag_1)}\n{sorted(diag_2)}")
 
-    return True
+#     return True
 
 
 
@@ -299,53 +299,257 @@ def sudoku_check(rows):
 
 # A function that checks whether a list passed as an argument contains
 # nine digits from '1' to '9'.
-def checkset(digs):
-    return sorted(list(digs)) == [chr(x + ord('0')) for x in range(1, 10)]
+# def checkset(digs):
+#     return sorted(list(digs)) == [chr(x + ord('0')) for x in range(1, 10)]
 
 
-# A list of rows representing the sudoku.
-rows = [ ]
-for r in range(9):
-    ok = False
-    while not ok:
-        row = input("Enter row #" + str(r + 1) + ": ")
-        ok = len(row) == 9 or row.isdigit()
-        if not ok:
-            print("Incorrect row data - 9 digits required")
-    rows.append(row)
+# # A list of rows representing the sudoku.
+# rows = [ ]
+# for r in range(9):
+#     ok = False
+#     while not ok:
+#         row = input("Enter row #" + str(r + 1) + ": ")
+#         ok = len(row) == 9 or row.isdigit()
+#         if not ok:
+#             print("Incorrect row data - 9 digits required")
+#     rows.append(row)
 
-ok = True
+# ok = True
 
-# Check if all rows are good.
-for row in rows:
-    if not checkset(row):
-        ok = False
-        break
+# # Check if all rows are good.
+# for row in rows:
+#     if not checkset(row):
+#         ok = False
+#         break
 
-# Check if all columns are good.
-if ok:
-    for c in range(9):
-        col = []
-        for r in range(9):
-            col.append(rows[r][c])
-        if not checkset(col):
-            ok = False
-            break
+# # Check if all columns are good.
+# if ok:
+#     for c in range(9):
+#         col = []
+#         for r in range(9):
+#             col.append(rows[r][c])
+#         if not checkset(col):
+#             ok = False
+#             break
 
-# Check if all sub-squares (3x3) are good.
-if ok:
-    for r in range(0, 9, 3):
-        for c in range(0, 9, 3):
-            sqr = ''
-            # Make a string containing all digits from a sub-square.
-            for i in range(3):
-                sqr += rows[r+i][c:c+3]
-            if not checkset(list(sqr)):
-                ok = False
-                break
+# # Check if all sub-squares (3x3) are good.
+# if ok:
+#     for r in range(0, 9, 3):
+#         for c in range(0, 9, 3):
+#             sqr = ''
+#             # Make a string containing all digits from a sub-square.
+#             for i in range(3):
+#                 sqr += rows[r+i][c:c+3]
+#             if not checkset(list(sqr)):
+#                 ok = False
+#                 break
 
-# Print the final verdict.
-if ok:
-    print("Yes")
-else:
-    print("No")
+# # Print the final verdict.
+# if ok:
+#     print("Yes")
+# else:
+#     print("No")
+
+
+
+
+# def read_int(prompt, min, max):
+#     user_input = input(prompt)
+#     try:
+#         user_input = float(user_input)
+#         result = int(user_input) if user_input <= max and user_input >= min else f'the value is not with permitted range ({min} and {max})'
+#     except ValueError:
+#         result = 'wrong input'
+
+
+#     return result
+
+# v = read_int("Enter a number from -10 to 10: ", -10, 10)
+
+# print("The number is:", v)
+
+
+
+
+
+# class QueueError(IndexError):
+#     pass
+
+
+# class Queue:
+#     def __init__(self):
+#         self.queue = []
+#     def put(self,elem):
+#         self.queue.insert(0,elem)
+#     def get(self):
+#         if len(self.queue) > 0:
+#             elem = self.queue[-1]
+#             del self.queue[-1]
+#             return elem
+#         else:
+#             raise QueueError
+
+
+# class SuperQueue(Queue):
+#     def __init__(self):
+#         Queue.__init__(self)
+
+#     def isempty(self):
+#         return len(self.queue) == 0
+
+
+# que = SuperQueue()
+# que.put(1)
+# que.put("dog")
+# que.put(False)
+# for i in range(4):
+#     if not que.isempty():
+#         print(que.get())
+#     else:
+#         print("Queue empty")
+
+
+
+# class ExampleClass:
+#     a = 1
+#     def __init__(self):
+#         self.b = 2
+
+
+# example_object = ExampleClass()
+
+# print(example_object.a)
+
+# print(hasattr(example_object, 'b'))
+# print(hasattr(example_object, 'a'))
+# print(hasattr(ExampleClass, 'b'))
+# print(hasattr(ExampleClass, 'a'))
+
+
+
+# class Timer:
+#     def __init__(self, hours = 0, minutes = 0, seconds = 0):
+#         self.__hours = hours
+#         self.__minutes = minutes
+#         self.__seconds = seconds
+
+#     def __str__(self):
+#         return f"{self.__hours:02}:{self.__minutes:02}:{self.__seconds:02}"
+
+#     def next_second(self):
+#         if self.__seconds < 59:
+#             self.__seconds += 1
+#         elif self.__minutes < 59:
+#             self.__minutes += 1
+#             self.__seconds = 0
+#         elif self.__hours < 23:
+#             self.__hours += 1
+#             self.__minutes = 0
+#             self.__seconds = 0
+#         else:
+#             self.__hours = 0
+#             self.__minutes = 0
+#             self.__seconds = 0
+
+#     def prev_second(self):
+#         if self.__seconds > 0:
+#             self.__seconds -= 1
+#         elif self.__minutes > 0:
+#             self.__minutes -= 1
+#             self.__seconds = 59
+#         elif self.__hours > 0:
+#             self.__hours -= 1
+#             self.__minutes = 59
+#             self.__seconds = 59
+#         else:
+#            self.__hours = 23
+#            self.__minutes = 59
+#            self.__seconds = 59
+
+
+# class WeekDayError(Exception):
+#     def __init__(self, message):
+#         super().__init()
+#         self.message = message
+
+
+
+# class Weeker:
+#     days_list = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+#     def __init__(self, week_day):
+#         if week_day not in Weeker.days_list:
+#             raise WeekDayError
+#         self.__week_day = week_day
+
+#     def __str__(self):
+#         return self.__week_day
+
+#     def add_days(self, n):
+#         self.__week_day = Weeker.days_list[(Weeker.days_list.index(self.__week_day) + n) % 7]
+
+#     def subtract_days(self, n):
+#         self.__week_day = Weeker.days_list[(Weeker.days_list.index(self.__week_day) - n) % 7]
+
+# import math
+
+# class Point:
+#     def __init__(self, x = 0, y = 0):
+#         self.__x = x
+#         self.__y = y
+
+#     def getx(self):
+#         return self.__x
+
+#     def gety(self):
+#         return self.__y
+
+#     def distance_from_xy(self, x, y):
+#         x_dif = abs(abs(self.__x) - abs(x))
+#         y_dif = abs(abs(self.__y) - abs(y))
+
+#         return math.sqrt(x_dif ** 2 + y_dif ** 2)
+
+#     def distance_from_point(self, point):
+#         return self.distance_from_xy(point.getx(), point.gety())
+
+
+
+# class Triangle(Point):
+#     def __init__(self, point_a, point_b, point_c):
+#         self.__points = [point_a, point_b, point_c]
+
+#     def perimeter(self):
+#         len_ab = self.__points[0].distance_from_point(self.__points[1])
+#         len_bc = self.__points[1].distance_from_point(self.__points[2])
+#         len_ca = self.__points[2].distance_from_point(self.__points[0])
+
+#         return sum([len_ab, len_bc, len_ca])
+
+import time
+
+class Tracks:
+    def change_direction(self, left, on):
+        print("tracks: ", left, on)
+
+
+class Wheels:
+    def change_direction(self, left, on):
+        print("wheels: ", left, on)
+
+
+class Vehicle:
+    def __init__(self, controller):
+        self.controller = controller
+
+    def turn(self, left):
+        self.controller.change_direction(left, True)
+        time.sleep(0.25)
+        self.controller.change_direction(left, False)
+
+
+wheeled = Vehicle(Wheels())
+tracked = Vehicle(Tracks())
+
+wheeled.turn(True)
+tracked.turn(False)
