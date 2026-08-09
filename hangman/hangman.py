@@ -250,9 +250,9 @@ gallows = [
 os.system('printf "\e[8;24;80t"')
 os.system('cls' if os.name == 'nt' else 'clear')
 
-goal_word = "PYTHON"
+# goal_word = "PYTHON"
 # goal_word = "MISSILE"
-# goal_word = get_word()
+goal_word = get_word()
 
 results = ["_" for _ in goal_word]
 

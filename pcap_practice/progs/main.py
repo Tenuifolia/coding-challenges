@@ -526,30 +526,213 @@ import sys
 
 #         return sum([len_ab, len_bc, len_ca])
 
-import time
+# import time
 
-class Tracks:
-    def change_direction(self, left, on):
-        print("tracks: ", left, on)
-
-
-class Wheels:
-    def change_direction(self, left, on):
-        print("wheels: ", left, on)
+# class Tracks:
+#     def change_direction(self, left, on):
+#         print("tracks: ", left, on)
 
 
-class Vehicle:
-    def __init__(self, controller):
-        self.controller = controller
-
-    def turn(self, left):
-        self.controller.change_direction(left, True)
-        time.sleep(0.25)
-        self.controller.change_direction(left, False)
+# class Wheels:
+#     def change_direction(self, left, on):
+#         print("wheels: ", left, on)
 
 
-wheeled = Vehicle(Wheels())
-tracked = Vehicle(Tracks())
+# class Vehicle:
+#     def __init__(self, controller):
+#         self.controller = controller
 
-wheeled.turn(True)
-tracked.turn(False)
+#     def turn(self, left):
+#         self.controller.change_direction(left, True)
+#         time.sleep(0.25)
+#         self.controller.change_direction(left, False)
+
+
+# wheeled = Vehicle(Wheels())
+# tracked = Vehicle(Tracks())
+
+# wheeled.turn(True)
+# tracked.turn(False)
+
+
+
+
+# class PizzaError(Exception):
+#     def __init__(self, pizza='unknown', message=''):
+#         Exception.__init__(self, message)
+#         self.pizza = pizza
+
+
+# class TooMuchCheeseError(PizzaError):
+#     def __init__(self, pizza='unknown', cheese='>100', message=''):
+#         PizzaError.__init__(self, pizza, message)
+#         self.cheese = cheese
+
+
+# def make_pizza(pizza, cheese):
+#     if pizza not in ['margherita', 'capricciosa', 'calzone']:
+#         raise PizzaError(pizza, 'Invalid pizza type')
+#     if cheese > 100:
+#         raise TooMuchCheeseError(pizza, cheese, 'Invalid cheese amount')
+#     print("Pizza ready!")
+
+
+# for (pz, ch) in [('calzone', 0), ('margherita', 110), ('mafia', 20)]:
+#     try:
+#         make_pizza(pz, ch)
+#     except TooMuchCheeseError as tmce:
+#         print(tmce, ':', tmce.cheese)
+#     except PizzaError as pe:
+#         print(pe, ':', pe.pizza)
+
+
+
+# class I:
+#     def __init__(self):
+#         self.s = 'abc'
+#         self.i = 0
+
+#     def __iter__(self):
+#         return self
+
+#     def __next__(self):
+#         if self.i == len(self.s):
+#             raise StopIteration
+#         v = self.s[self.i]
+#         self.i += 1
+#         return v
+
+# obj = I()
+
+# for x in obj:
+#     print(x, end='')
+
+# print()
+
+
+# print(range(1, 2))
+
+
+
+
+
+
+
+# class Fib:
+#     def __init__(self, nn):
+#         print("__init__")
+#         self.__n = nn
+#         self.__i = 0
+#         self.__p1 = self.__p2 = 1
+
+#     def __iter__(self):
+#         print("__iter__")
+#         return self
+
+#     def __next__(self):
+#         print("__next__")
+#         self.__i += 1
+#         if self.__i > self.__n:
+#             raise StopIteration
+#         if self.__i in [1, 2]:
+#             return 1
+#         ret = self.__p1 + self.__p2
+#         self.__p1, self.__p2 = self.__p2, ret
+#         return ret
+
+
+# for i in Fib(10):
+#     print(i)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# class Fib:
+#     def __init__(self, nn):
+#         self.__n = nn
+#         self.__i = 0
+#         self.__p1 = self.__p2 = 1
+
+#     def __iter__(self):
+#         print("Fib iter")
+#         return self
+
+#     def __next__(self):
+#         self.__i += 1
+#         if self.__i > self.__n:
+#             raise StopIteration
+#         if self.__i in [1, 2]:
+#             return 1
+#         ret = self.__p1 + self.__p2
+#         self.__p1, self.__p2 = self.__p2, ret
+#         return ret
+
+
+# class Class:
+#     def __init__(self, n):
+#         self.__iter = Fib(n)
+
+#     def __iter__(self):
+#         print("Class iter")
+#         return self.__iter
+
+
+# object = Class(8)
+
+# for i in object:
+#     print(i)
+
+
+
+
+
+# def powers_of_2(n):
+#     power = 1
+#     for i in range(n):
+#         yield power
+#         power *= 2
+
+
+# for i in range(20):
+#     if i in powers_of_2(4):
+#         print(i)
+
+
+
+
+
+# def fibonacci(n):
+#     p = pp = 1
+#     for i in range(n):
+#         if i in [0, 1]:
+#             yield 1
+#         else:
+#             n = p + pp
+#             pp, p = p, n
+#             yield n
+
+# fibs = list(fibonacci(10))
+# print(fibs)
+
+
+
+
+
+two = lambda: 2
+sqr = lambda x: x * x
+pwr = lambda x, y: x ** y
+
+for a in range(-2, 3):
+    print(sqr(a), end=" ")
+    print(pwr(a, two()))
