@@ -1,0 +1,10 @@
+
+
+
+
+
+
+Starting in 4.1.1 of the Cisco Networking Adademy in the PCAP prep course. 
+
+
+Coming across generators.  It defines generators as being similar to iterators
