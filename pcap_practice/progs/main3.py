@@ -6,7 +6,6 @@
 
 # class TestClass:
 #     def __init__(self, n):
-#         self.elements = []
 #         self.__i = 0
 #         self.__n = n
 #         self.__output = 0
